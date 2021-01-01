@@ -25,5 +25,7 @@ run:
 	$(RUN) $(RUNFLAGS)
 startsim:
 	$(SIM)
-package: $(DEPENDECIES)
+package: .FORCE
 	$(CC) $(PCKFLAGS) -r -e
+
+.FORCE:
