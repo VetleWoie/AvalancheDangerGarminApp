@@ -5,7 +5,7 @@ using Toybox.WatchUi;
 
 class AvalancheDangerApp extends Application.AppBase {
 
-    var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Simple/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
+    var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
     var langkey=2;
     var date;
     var loc;
@@ -19,23 +19,35 @@ class AvalancheDangerApp extends Application.AppBase {
     function onStart(state) {
         var pos = Position.getInfo();
         System.println(pos.position.toDegrees());
-        Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
+        if(pos.position.toDegrees()[0] == 0){
+            System.println("No valid recorded position, requesting gps");
+            Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
+        }else{
+            System.println("Using recorded position");
+            self.makeRequest(pos.position.toDegrees());
+        }
+    }
+
+    function makeRequest(loc){
+        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + langkey.toString() + "/";
+        Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
     }
 
     function onPosition(info){
         self.loc = info.position.toDegrees();
-        System.println(self.loc);
-        self.url += self.loc[0].toString() + "/" + self.loc[1].toString() + "/" + self.langkey.toString() + "/";
-        Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
+        self.makeRequest(self.loc);
         return;
     }
 
     function onRecieve(responseCode, data){
-        if(responseCode == 200){
+        if(responseCode == 200 and data != null){
             System.println("Response recieved!");
             System.println("Dangerlevel is: " + data[0]["DangerLevel"]);
             self.avDanger = data[0]["DangerLevel"].toNumber();
         }else{
+            System.print(responseCode);
+            System.print(" ");
+            System.println(data);
             self.avDanger = -1;
         }
         WatchUi.requestUpdate();
