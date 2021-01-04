@@ -4,8 +4,6 @@
     <!--
         Use "Connect IQ: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
-
-        Original appid: "f595b851-1fda-4337-babd-c80eb8f8a001"
     -->
     <iq:application id="f19ac816-dc89-4fd4-985d-8bdbf873cb8a" type="widget" name="@Strings.AppName" entry="AvalancheDangerApp" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="1.2.0">
         <!--
@@ -16,7 +14,12 @@
             "Connect IQ: Edit Products" - Lets you add or remove any product
         -->
         <iq:products>
+            <iq:product id="fenixchronos"/>
+            <iq:product id="fenix3"/>
             <iq:product id="fenix3_hr"/>
+            <iq:product id="fenix5s"/>
+            <iq:product id="fenix5"/>
+            <iq:product id="fenix5x"/>
         </iq:products>
         <!--
             Use "Connect IQ: Edit Permissions" from the Visual Studio Code command
