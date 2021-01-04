@@ -10,6 +10,7 @@ class AvalancheDangerApp extends Application.AppBase {
     var date;
     var loc;
     var avDanger=-1;
+    var avProblems=[];
 
     function initialize() {
         AppBase.initialize();
@@ -44,6 +45,7 @@ class AvalancheDangerApp extends Application.AppBase {
             System.println("Response recieved!");
             System.println("Dangerlevel is: " + data[0]["DangerLevel"]);
             self.avDanger = data[0]["DangerLevel"].toNumber();
+            self.avProblems = data[0]["AvalancheProblems"];
         }else{
             System.print(responseCode);
             System.print(" ");
@@ -60,7 +62,7 @@ class AvalancheDangerApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new AvalancheForecastView(), new InputDelegate() ];
+        return [ new AvalancheForecastView(), new ForecastInputDelegate() ];
 
     }
 
