@@ -1,3 +1,8 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="LauncherIcon" filename="Images\launcher_icon.png" />
+    <bitmap id="DriftingSnow" filename="Images\drifting_snow_c.png" />
+    <bitmap id="GlidingSnow" filename="Images\gliding_snow_c.jpg" />
+    <bitmap id="NewSnow" filename="Images\new_snow_c.jpg" />
+    <bitmap id="OldSnow" filename="Images\old_snow_c.jpg" />
+    <bitmap id="WetSnow" filename="Images\wet_snow_c.jpg" />
 </drawables>
