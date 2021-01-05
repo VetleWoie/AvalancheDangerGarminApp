@@ -21,7 +21,7 @@ class ForecastInputDelegate extends WatchUi.BehaviorDelegate{
         }else{
             return false;
         }
-        WatchUi.pushView(new AvalancheProblemView(problemId), new ProblemInputDelegate(0), WatchUi.SLIDE_RIGHT);
+        WatchUi.pushView(new AvalancheProblemView(problemId), new ProblemInputDelegate(0), WatchUi.SLIDE_LEFT);
         return true;
     }
     
