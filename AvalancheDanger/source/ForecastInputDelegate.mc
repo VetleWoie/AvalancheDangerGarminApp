@@ -3,6 +3,7 @@ using Toybox.WatchUi;
 using Toybox.Application;
 
 class ForecastInputDelegate extends WatchUi.BehaviorDelegate{
+
     function initialize() {
         BehaviorDelegate.initialize();
         System.println("Initializing forecast behavior delegate");
@@ -13,9 +14,8 @@ class ForecastInputDelegate extends WatchUi.BehaviorDelegate{
 
     function onSelect(){
         System.println("Select button pressed!");
-        var problemId = Application.getApp().avProblems;
-        System.println(problemId);
-        WatchUi.pushView(new AvalancheProblemView(10), new ProblemInputDelegate(), WatchUi.SLIDE_RIGHT);
+        var problemId = Application.getApp().avProblems[0]["AvalancheProblemTypeId"];
+        WatchUi.pushView(new AvalancheProblemView(problemId), new ProblemInputDelegate(0), WatchUi.SLIDE_RIGHT);
         return true;
     }
     

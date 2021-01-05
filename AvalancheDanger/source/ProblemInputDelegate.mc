@@ -2,9 +2,10 @@ using Toybox.System;
 using Toybox.WatchUi;
 
 class ProblemInputDelegate extends WatchUi.BehaviorDelegate{
-    function initialize() {
+    function initialize(idx) {
         BehaviorDelegate.initialize();
         System.println("Initializing problem behavior delegate");
+        System.println(idx);
     }
 
     function onMenu(){
