@@ -1,6 +1,7 @@
 using Toybox.WatchUi;
 using Toybox.Application;
 using Toybox.Graphics;
+
 class AvalancheForecastView extends WatchUi.View {
     hidden var textDanger;
     function initialize() {
