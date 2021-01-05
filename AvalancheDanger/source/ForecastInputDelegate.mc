@@ -13,8 +13,14 @@ class ForecastInputDelegate extends WatchUi.BehaviorDelegate{
     }
 
     function onSelect(){
+        var avProblems = Application.getApp().avProblems;
+        var problemId;
         System.println("Select button pressed!");
-        var problemId = Application.getApp().avProblems[0]["AvalancheProblemTypeId"];
+        if(avProblems.size() != 0){
+            problemId = avProblems[0]["AvalancheProblemTypeId"];
+        }else{
+            return false;
+        }
         WatchUi.pushView(new AvalancheProblemView(problemId), new ProblemInputDelegate(0), WatchUi.SLIDE_RIGHT);
         return true;
     }
