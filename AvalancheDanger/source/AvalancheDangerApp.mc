@@ -2,6 +2,7 @@ using Toybox.Application;
 using Toybox.Position;
 using Toybox.Communications;
 using Toybox.WatchUi;
+using Toybox.System;
 
 class AvalancheDangerApp extends Application.AppBase {
 
@@ -10,6 +11,7 @@ class AvalancheDangerApp extends Application.AppBase {
     var date;
     var loc;
     var avDanger=-1;
+    var avDangerName;
 
     function initialize() {
         AppBase.initialize();
@@ -18,10 +20,18 @@ class AvalancheDangerApp extends Application.AppBase {
     // onStart() is called on application start up
     function onStart(state) {
         var pos = Position.getInfo();
+        // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
+
         System.println(pos.position.toDegrees());
         if(pos.position.toDegrees()[0] == 0){
+            // Creating test pos in Tromsø
             System.println("No valid recorded position, requesting gps");
-            Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
+            // Creates a position in Tromsø
+            var locString = "69.6613, 18.9503";
+            var myLoc = Position.parse(locString, Position.GEO_DEG); // -> Location
+            System.println("Tromsø loc: " + myLoc.toDegrees());
+            self.makeRequest(myLoc.toDegrees());
+            // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
         }else{
             System.println("Using recorded position");
             self.makeRequest(pos.position.toDegrees());
@@ -34,7 +44,9 @@ class AvalancheDangerApp extends Application.AppBase {
     }
 
     function onPosition(info){
+        System.println("onPosition");
         self.loc = info.position.toDegrees();
+        System.println("Latitude: " + self.loc[0]);
         self.makeRequest(self.loc);
         return;
     }
@@ -42,13 +54,17 @@ class AvalancheDangerApp extends Application.AppBase {
     function onRecieve(responseCode, data){
         if(responseCode == 200 and data != null){
             System.println("Response recieved!");
-            System.println("Dangerlevel is: " + data[0]["DangerLevel"]);
+            System.println("-> Dangerlevel is: " + data[0]["DangerLevel"]);
+            System.println("-> Dangerlevel name is: " + data[0]["DangerLevelName"]);
             self.avDanger = data[0]["DangerLevel"].toNumber();
+            self.avDangerName = data[0]["DangerLevelName"].toString();
+            System.println("Test -> " + self.avDangerName);
         }else{
             System.print(responseCode);
             System.print(" ");
             System.println(data);
             self.avDanger = -1;
+            self.avDangerName = "None";
         }
         WatchUi.requestUpdate();
         return;

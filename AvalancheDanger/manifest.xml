@@ -16,7 +16,7 @@
             "Connect IQ: Edit Products" - Lets you add or remove any product
         -->
         <iq:products>
-            <iq:product id="fenix3_hr"/>
+            <iq:product id="fenix5plus"/>
         </iq:products>
         <!--
             Use "Connect IQ: Edit Permissions" from the Visual Studio Code command

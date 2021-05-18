@@ -3,6 +3,7 @@ using Toybox.Application;
 using Toybox.Graphics;
 class AvalancheDangerView extends WatchUi.View {
     hidden var textDanger;
+    hidden var textDangerName;
     function initialize() {
         View.initialize();
     }
@@ -16,12 +17,23 @@ class AvalancheDangerView extends WatchUi.View {
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
             :locY=>WatchUi.LAYOUT_VALIGN_CENTER
         });
+
+        textDangerName = new WatchUi.Text({
+            :text=>"",
+            :color=>Graphics.COLOR_BLACK,
+            :font=>Graphics.FONT_SMALL,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>160
+        });
+
         WatchUi.requestUpdate();
     }
 
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
+    /* 
+     * Called when this View is brought to the foreground. Restore
+     * the state of this View and prepare it to be shown. This includes
+     * loading resources into memory. 
+     */
     function onShow() {
         
     }
@@ -32,6 +44,13 @@ class AvalancheDangerView extends WatchUi.View {
         // Call the parent onUpdate function to redraw the layout
         //Get avalange danger from application
         textDanger.setText(Application.getApp().avDanger.toString());
+
+        var locString = Application.getApp().avDangerName;
+
+        // System.println(locString.toString());
+        // textDangerName.setText(Application.getApp().avDangerName.toString());
+        textDangerName.setText(locString);
+
         //Set color according to avalanche danger.
         if(Application.getApp().avDanger == 1){
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_GREEN);
@@ -47,10 +66,13 @@ class AvalancheDangerView extends WatchUi.View {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
             textDanger.setFont(Graphics.FONT_SMALL);
             textDanger.setText("No data recieved");
+            textDangerName.setText("");
         }
+        
         //Clear screen and draw avalanche danger again
         dc.clear();
         textDanger.draw(dc);
+        textDangerName.draw(dc);
         textDanger.setFont(Graphics.FONT_NUMBER_THAI_HOT);
         return;
     }
