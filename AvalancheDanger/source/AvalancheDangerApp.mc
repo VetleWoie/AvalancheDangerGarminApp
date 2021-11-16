@@ -10,8 +10,12 @@ class AvalancheDangerApp extends Application.AppBase {
     var langkey=2;
     var date;
     var loc;
+
+    // Storing data
     var avDanger=-1;
-    var avDangerName;
+    var avDangerName = "";
+    var avDangerRegion = "";
+    // var
 
     function initialize() {
         AppBase.initialize();
@@ -39,7 +43,8 @@ class AvalancheDangerApp extends Application.AppBase {
     }
 
     function makeRequest(loc){
-        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + langkey.toString() + "/";
+        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + langkey.toString() + "/" + "2021-05-12/2021-05-12"; // Hardcored date for testing
+        // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Simple/69.6489/18.9551/1/2021-05-12/2021-05-12";
         Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
     }
 
@@ -55,10 +60,14 @@ class AvalancheDangerApp extends Application.AppBase {
         if(responseCode == 200 and data != null){
             System.println("Response recieved!");
             System.println("-> Dangerlevel is: " + data[0]["DangerLevel"]);
-            System.println("-> Dangerlevel name is: " + data[0]["DangerLevelName"]);
+            // System.println("-> Dangerlevel name is: " + data[0]["DangerLevelName"]);
+
             self.avDanger = data[0]["DangerLevel"].toNumber();
             self.avDangerName = data[0]["DangerLevelName"].toString();
             System.println("Test -> " + self.avDangerName);
+
+            self.avDangerRegion = data[0]["RegionName"].toString();
+
         }else{
             System.print(responseCode);
             System.print(" ");

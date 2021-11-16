@@ -4,6 +4,7 @@ using Toybox.Graphics;
 class AvalancheDangerView extends WatchUi.View {
     hidden var textDanger;
     hidden var textDangerName;
+    hidden var textDangerRegion;
     function initialize() {
         View.initialize();
     }
@@ -26,6 +27,16 @@ class AvalancheDangerView extends WatchUi.View {
             :locY=>160
         });
 
+        textDangerRegion = new WatchUi.Text({
+            :text=>"",
+            :color=>Graphics.COLOR_BLACK,
+            :font=>Graphics.FONT_SMALL,
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>180
+        });
+
+        
+
         WatchUi.requestUpdate();
     }
 
@@ -45,11 +56,13 @@ class AvalancheDangerView extends WatchUi.View {
         //Get avalange danger from application
         textDanger.setText(Application.getApp().avDanger.toString());
 
-        var locString = Application.getApp().avDangerName;
+        // var locString = Application.getApp().avDangerName;
 
         // System.println(locString.toString());
-        // textDangerName.setText(Application.getApp().avDangerName.toString());
-        textDangerName.setText(locString);
+        textDangerName.setText(Application.getApp().avDangerName.toString());
+        textDangerRegion.setText(Application.getApp().avDangerRegion.toString());
+
+        // textDangerName.setText(locString);
 
         //Set color according to avalanche danger.
         if(Application.getApp().avDanger == 1){
@@ -67,12 +80,14 @@ class AvalancheDangerView extends WatchUi.View {
             textDanger.setFont(Graphics.FONT_SMALL);
             textDanger.setText("No data recieved");
             textDangerName.setText("");
+            textDangerRegion.setText("");
         }
         
         //Clear screen and draw avalanche danger again
         dc.clear();
         textDanger.draw(dc);
         textDangerName.draw(dc);
+        textDangerRegion.draw(dc);
         textDanger.setFont(Graphics.FONT_NUMBER_THAI_HOT);
         return;
     }
