@@ -16,6 +16,7 @@
             "Connect IQ: Edit Products" - Lets you add or remove any product
         -->
         <iq:products>
+            <iq:product id="fenix6pro"/>
             <iq:product id="fenix5plus"/>
         </iq:products>
         <!--

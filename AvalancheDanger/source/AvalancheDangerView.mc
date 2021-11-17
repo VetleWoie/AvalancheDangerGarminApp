@@ -30,9 +30,9 @@ class AvalancheDangerView extends WatchUi.View {
         textDangerRegion = new WatchUi.Text({
             :text=>"",
             :color=>Graphics.COLOR_BLACK,
-            :font=>Graphics.FONT_SMALL,
+            :font=>Graphics.FONT_TINY,
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>180
+            :locY=>200
         });
 
         
