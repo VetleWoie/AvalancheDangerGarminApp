@@ -5,6 +5,7 @@ class AvalancheDangerView extends WatchUi.View {
     hidden var textDanger;
     hidden var textDangerName;
     hidden var textDangerRegion;
+    
     function initialize() {
         View.initialize();
     }

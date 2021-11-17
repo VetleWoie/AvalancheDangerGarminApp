@@ -11,6 +11,8 @@ class MyMenuDelegate extends WatchUi.MenuInputDelegate {
             System.println("Item 1");
         } else if (item == :item_2) {
             System.println("Item 2");
+        } else if (item == :item_3) {
+            System.println("Item 3");
         }
     }
 }
@@ -30,7 +32,8 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         var delegate;
         menu.setTitle("My Menu");
         menu.addItem("Item One", :item_1);
-        menu.addItem("Item Two", :two);
+        menu.addItem("Item Two", :item_2);
+        menu.addItem("Item Three", :item_3);
         delegate = new  MyMenuDelegate(); // a WatchUi.MenuInputDelegate
         WatchUi.pushView(menu, delegate, WatchUi.SLIDE_IMMEDIATE);
         return true;
