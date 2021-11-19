@@ -15,6 +15,7 @@ class AvalancheDangerApp extends Application.AppBase {
     var avDanger=-1;
     var avDangerName = "";
     var avDangerRegion = "";
+    var avMainText = "";
     // var
 
     function initialize() {
@@ -23,6 +24,11 @@ class AvalancheDangerApp extends Application.AppBase {
 
     // onStart() is called on application start up
     function onStart(state) {
+
+        // var test = new AppInitView();
+        // WatchUi.pushView(test, null, WatchUi.SLIDE_DOWN);
+
+        // System.println("On start...");
         var pos = Position.getInfo();
         // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
 
@@ -62,11 +68,12 @@ class AvalancheDangerApp extends Application.AppBase {
             System.println("-> Dangerlevel is: " + data[0]["DangerLevel"]);
             // System.println("-> Dangerlevel name is: " + data[0]["DangerLevelName"]);
 
-            self.avDanger = data[0]["DangerLevel"].toNumber();
-            self.avDangerName = data[0]["DangerLevelName"].toString();
-            System.println("Test -> " + self.avDangerName);
+            // self.avDanger = data[0]["DangerLevel"].toNumber();
+            // self.avDangerName = data[0]["DangerLevelName"].toString();
+            // System.println("Test -> " + self.avDangerName);
 
-            self.avDangerRegion = data[0]["RegionName"].toString();
+            // self.avDangerRegion = data[0]["RegionName"].toString();
+            self.setVariables(data);
 
         }else{
             System.print(responseCode);
@@ -78,6 +85,16 @@ class AvalancheDangerApp extends Application.AppBase {
         WatchUi.requestUpdate();
         return;
     }
+
+    function setVariables(data){
+        self.avDanger = data[0]["DangerLevel"].toNumber();
+        self.avDangerName = data[0]["DangerLevelName"].toString();
+        System.println("Test -> " + self.avDangerName);
+
+        self.avDangerRegion = data[0]["RegionName"].toString();
+
+        self.avMainText = data[0]["MainText"].toString();
+    }
     
     // onStop() is called when your application is exiting
     function onStop(state) {
@@ -85,7 +102,7 @@ class AvalancheDangerApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new AvalancheDangerView(), new InputDelegate() ];
+        return [ new AvalancheDangerView(), new InputDelegate()];
 
     }
 

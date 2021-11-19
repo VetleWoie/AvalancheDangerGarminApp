@@ -1,6 +1,9 @@
 using Toybox.WatchUi;
 using Toybox.Application;
 using Toybox.Graphics;
+using Toybox.StringUtil as Str;
+
+
 class AvalancheDangerView extends WatchUi.View {
     hidden var textDanger;
     hidden var textDangerName;
@@ -57,10 +60,21 @@ class AvalancheDangerView extends WatchUi.View {
         //Get avalange danger from application
         textDanger.setText(Application.getApp().avDanger.toString());
 
-        // var locString = Application.getApp().avDangerName;
+        // Fetching avalanche danger name
+        var str = Application.getApp().avDangerName.toString();
 
-        // System.println(locString.toString());
-        textDangerName.setText(Application.getApp().avDangerName.toString());
+        if (str != ""){
+            // Converts to array and sliceing the array
+            var arr = str.toCharArray().slice(2, null);
+            // Converts back to string
+            str = Str.charArrayToString(arr);
+            System.println(str);
+
+            textDangerName.setText(str);
+        } 
+
+
+
         textDangerRegion.setText(Application.getApp().avDangerRegion.toString());
 
         // textDangerName.setText(locString);
@@ -77,11 +91,15 @@ class AvalancheDangerView extends WatchUi.View {
         }else if(Application.getApp().avDanger == 5){
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
         }else{
+
+
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
             textDanger.setFont(Graphics.FONT_SMALL);
-            textDanger.setText("No data recieved");
-            textDangerName.setText("");
-            textDangerRegion.setText("");
+            textDanger.setText("Press button to fetch data");
+            // textDangerName.setText("");
+            // textDangerRegion.setText("");
+
+
         }
         
         //Clear screen and draw avalanche danger again
@@ -90,6 +108,7 @@ class AvalancheDangerView extends WatchUi.View {
         textDangerName.draw(dc);
         textDangerRegion.draw(dc);
         textDanger.setFont(Graphics.FONT_NUMBER_THAI_HOT);
+
         return;
     }
 
