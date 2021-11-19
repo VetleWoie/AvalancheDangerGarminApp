@@ -50,6 +50,8 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
     var initView = new AppInitView();
     var arr = new [0];
 
+    var currentView;
+
     var index;
 
     function initialize() {
@@ -57,6 +59,8 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         System.println("Initializing behavior delegate");
 
         self.index = 0;
+
+        self.currentView = self.dangerView;
 
         // Addinw views to the array
         self.arr.add(self.dangerView);
@@ -111,6 +115,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         System.println("Nextpage");
         // System.println("Creating new view");
 
+
         // Calculates new index
         self.index = (self.index + 1) % self.arr.size();
         System.println("Current index: " + self.index);
@@ -118,7 +123,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         // Fetching the next view
         var newView = self.arr[self.index];
 
-        WatchUi.pushView(newView, self, WatchUi.SLIDE_DOWN);
+        WatchUi.switchToView(newView, self, WatchUi.SLIDE_DOWN);
 
         return true;
     }
@@ -139,7 +144,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         // Fetching the next view
         var newView = self.arr[self.index];
 
-        WatchUi.pushView(newView, self, WatchUi.SLIDE_DOWN);
+        WatchUi.switchToView(newView, self, WatchUi.SLIDE_DOWN);
 
         return true;
     }
