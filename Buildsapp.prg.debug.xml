@@ -65,37 +65,37 @@
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="15" lineNum="63" pc="268437087" symbol="initialize"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="15" lineNum="66" pc="268437103" symbol="initialize"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="15" lineNum="67" pc="268437129" symbol="initialize"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="70" pc="268437156" symbol="onMenu"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="71" pc="268437160" symbol="onMenu"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="72" pc="268437181" symbol="onMenu"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="75" pc="268437185" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="76" pc="268437189" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="89" pc="268437210" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="90" pc="268437257" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="71" pc="268437156" symbol="onMenu"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="72" pc="268437160" symbol="onMenu"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="16" lineNum="73" pc="268437181" symbol="onMenu"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="76" pc="268437185" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="77" pc="268437189" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="90" pc="268437210" symbol="onSelect"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="91" pc="268437257" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="99" pc="268437312" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="107" pc="268437367" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="108" pc="268437391" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="110" pc="268437423" symbol="onSelect"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="114" pc="268437427" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="115" pc="268437431" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="126" pc="268437452" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="127" pc="268437492" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="130" pc="268437522" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="132" pc="268437541" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="134" pc="268437573" symbol="onNextPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="137" pc="268437577" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="138" pc="268437581" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="141" pc="268437602" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="144" pc="268437642" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="145" pc="268437659" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="148" pc="268437693" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="151" pc="268437723" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="153" pc="268437742" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="155" pc="268437774" symbol="onPreviousPage"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="49" pc="268439268" symbol="&lt;init&gt;"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="50" pc="268439298" symbol="&lt;init&gt;"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="51" pc="268439312" symbol="&lt;init&gt;"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="92" pc="268437257" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="100" pc="268437312" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="108" pc="268437367" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="109" pc="268437391" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="17" lineNum="111" pc="268437423" symbol="onSelect"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="115" pc="268437427" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="116" pc="268437431" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="121" pc="268437452" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="122" pc="268437492" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="125" pc="268437522" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="127" pc="268437541" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="18" lineNum="129" pc="268437573" symbol="onNextPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="132" pc="268437577" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="133" pc="268437581" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="136" pc="268437602" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="139" pc="268437642" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="140" pc="268437659" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="143" pc="268437693" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="146" pc="268437723" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="148" pc="268437742" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="150" pc="268437774" symbol="onPreviousPage"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="49" pc="268439394" symbol="&lt;init&gt;"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="50" pc="268439424" symbol="&lt;init&gt;"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/InputDelegate.mc" id="19" lineNum="51" pc="268439438" symbol="&lt;init&gt;"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AvalancheDangerApp.mc" id="21" lineNum="21" pc="268437778" symbol="initialize"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AvalancheDangerApp.mc" id="21" lineNum="22" pc="268437782" symbol="initialize"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AvalancheDangerApp.mc" id="22" lineNum="26" pc="268437801" symbol="onStart"/>
@@ -144,14 +144,18 @@
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="30" lineNum="13" pc="268438788" symbol="initialize"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="31" lineNum="17" pc="268438807" symbol="onLayout"/>
 <entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="31" lineNum="18" pc="268438811" symbol="onLayout"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="32" lineNum="32" pc="268438971" symbol="onShow"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="40" pc="268438976" symbol="onUpdate"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="41" pc="268438980" symbol="onUpdate"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="50" pc="268439030" symbol="onUpdate"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="51" pc="268439066" symbol="onUpdate"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="52" pc="268439078" symbol="onUpdate"/>
-<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="54" pc="268439098" symbol="onUpdate"/>
-<entry filename="Rez" id="39" lineNum="17" pc="268439100" symbol="MainLayout"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="32" lineNum="32" pc="268439025" symbol="onShow"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="40" pc="268439030" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="42" pc="268439034" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="44" pc="268439068" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="45" pc="268439086" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="47" pc="268439110" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="50" pc="268439136" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="59" pc="268439156" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="60" pc="268439192" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="61" pc="268439204" symbol="onUpdate"/>
+<entry filename="/Users/borgebardsen/Documents/Projects/AvalancheDangerGarminApp/AvalancheDanger/source/AppInitView.mc" id="33" lineNum="63" pc="268439224" symbol="onUpdate"/>
+<entry filename="Rez" id="39" lineNum="17" pc="268439226" symbol="MainLayout"/>
 </pcToLineNum>
 <symbolTable>
 <entry id="8388639" module="true" symbol="Graphics"/>
@@ -257,9 +261,11 @@
 <entry arg="true" endPc="268438527" name="data" stackId="2" startPc="268438327"/>
 <entry arg="true" endPc="268438686" name="data" stackId="1" startPc="268438527"/>
 <entry arg="true" endPc="268438691" name="state" stackId="1" startPc="268438686"/>
-<entry arg="true" endPc="268438971" name="dc" stackId="1" startPc="268438807"/>
-<entry arg="true" endPc="268439100" name="dc" stackId="1" startPc="268438976"/>
-<entry arg="true" endPc="268439113" name="dc" stackId="1" startPc="268439100"/>
+<entry arg="true" endPc="268439025" name="dc" stackId="1" startPc="268438807"/>
+<entry endPc="268439225" name="index" stackId="3" startPc="268439034"/>
+<entry endPc="268439225" name="str" stackId="2" startPc="268439034"/>
+<entry arg="true" endPc="268439226" name="dc" stackId="1" startPc="268439030"/>
+<entry arg="true" endPc="268439239" name="dc" stackId="1" startPc="268439226"/>
 </localVars>
 <annotations>
 <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>

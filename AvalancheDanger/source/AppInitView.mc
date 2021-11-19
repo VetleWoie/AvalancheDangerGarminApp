@@ -18,7 +18,7 @@ class AppInitView extends WatchUi.View {
         myTextArea = new WatchUi.TextArea({
             :text=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             :color=>Graphics.COLOR_WHITE,
-            :font=>Graphics.FONT_XTINY,
+            :font=>[Graphics.FONT_MEDIUM, Graphics.FONT_SMALL, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
             :locY=>WatchUi.LAYOUT_VALIGN_CENTER,
             :width=>180,
@@ -38,7 +38,16 @@ class AppInitView extends WatchUi.View {
     }
 
     function onUpdate(dc) {
-        myTextArea.setText(Application.getApp().avMainText.toString());
+
+        var str = Application.getApp().avMainText.toString();
+
+        var index = str.find(".");
+        System.println("Text length: " + index);
+
+        str = str.substring(0, index+1);
+
+
+        myTextArea.setText(str);
         // var width = dc.getWidth();
         // var height = dc.getHeight();
         // System.println("Width: "+ width);

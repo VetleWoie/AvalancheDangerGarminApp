@@ -67,6 +67,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         self.arr.add(self.initView);
 
     }
+
     function onMenu(){
         System.println("Menu button pressed!");
         return true;
