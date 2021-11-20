@@ -16,6 +16,8 @@ class AvalancheDangerApp extends Application.AppBase {
     var avDangerName = "";
     var avDangerRegion = "";
     var avMainText = "";
+
+    var avProblems = [];
     // var
 
     function initialize() {
@@ -87,13 +89,17 @@ class AvalancheDangerApp extends Application.AppBase {
     }
 
     function setVariables(data){
+
         self.avDanger = data[0]["DangerLevel"].toNumber();
         self.avDangerName = data[0]["DangerLevelName"].toString();
+        System.println("Test ");
         System.println("Test -> " + self.avDangerName);
 
         self.avDangerRegion = data[0]["RegionName"].toString();
 
         self.avMainText = data[0]["MainText"].toString();
+
+        self.avProblems = data[0]["AvalancheProblems"];
     }
     
     // onStop() is called when your application is exiting

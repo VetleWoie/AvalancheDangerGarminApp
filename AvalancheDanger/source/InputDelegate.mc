@@ -1,5 +1,7 @@
 using Toybox.System;
 using Toybox.WatchUi;
+using Toybox.Application;
+
 
 class MyMenuDelegate extends WatchUi.MenuInputDelegate {
     function initialize() {
@@ -30,17 +32,12 @@ class MyMenu2InputDelegate extends WatchUi.Menu2InputDelegate {
 
     function onSelect(item) {
         
-        // If id == 1
-        if (item.getId().equals(1)) {
-            System.println("Selected " + item.getLabel());
+        System.println("Selected " + item.getLabel());
+        System.println("Selected " + item.getSubLabel());
+        System.println("Selected id " + item.getId());
 
-            // var test = new AppInitView();
-            // WatchUi.pushView(test, null, WatchUi.SLIDE_DOWN);
-        }
-        else if (item.getId().equals(2)){
-            System.println("Selected " + item.getLabel());
+        // Create new view based on the selected id, no delegate atm
 
-        }
     }
 }
 
@@ -73,38 +70,41 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
         return true;
     }
 
+    function addItems(menu) {
+        var str, label, subLabel;
+        var i, index, length;
+
+        var avProblems = Application.getApp().avProblems;
+
+        for (i = 0; i < avProblems.size(); i++) {
+            
+            str = Application.getApp().avProblems[i]["AvalancheProblemTypeName"];
+            length = str.length();
+
+            index = str.find("(");
+            label = str.substring(0, index);
+            subLabel = str.substring(index, length);
+
+            menu.addItem(
+                new MenuItem(
+                    label,
+                    subLabel,
+                    Application.getApp().avProblems[i]["AvalancheProblemTypeId"],
+                    {}
+                )
+            );
+        }
+
+    }
+
     function onSelect(){
         System.println("Select button pressed!");
-        // var menu = new WatchUi.Menu();
-        // var delegate;
 
-        // menu.setTitle("My Menu");
-        // menu.addItem("New view", :item_1);
-        // menu.addItem("Item Two", :item_2);
-        // menu.addItem("Item Three", :item_3);
-
-        // delegate = new  MyMenuDelegate(); // a WatchUi.MenuInputDelegate
-        // // test = new AppInitView();
-        // WatchUi.pushView(menu, delegate, WatchUi.SLIDE_IMMEDIATE);
-
-        var menu = new WatchUi.Menu2({:title=>"My Menu2"});
+        var menu = new WatchUi.Menu2({:title=>"Menu"});
         var delegate;
-        menu.addItem(
-            new MenuItem(
-                "Hovedbudskap",
-                "Main Text",
-                1,
-                {}
-            )
-        );
-        menu.addItem(
-            new MenuItem(
-                "Item 2 Label",
-                "Item 2 subLabel",
-                2,
-                {}
-            )
-        );
+
+        self.addItems(menu);
+
         delegate = new MyMenu2InputDelegate(); // a WatchUi.Menu2InputDelegate
         WatchUi.pushView(menu, delegate, WatchUi.SLIDE_IMMEDIATE);
 
@@ -114,8 +114,6 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
 
     function onNextPage() {
         System.println("Nextpage");
-        // System.println("Creating new view");
-
 
         // Calculates new index
         self.index = (self.index + 1) % self.arr.size();
