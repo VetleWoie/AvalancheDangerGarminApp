@@ -16,7 +16,7 @@ class AppInitView extends WatchUi.View {
 
     function onLayout(dc) {
         myTextArea = new WatchUi.TextArea({
-            :text=>"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            :text=>"Hold Menu button to fetch data",
             :color=>Graphics.COLOR_WHITE,
             :font=>[Graphics.FONT_MEDIUM, Graphics.FONT_SMALL, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
@@ -39,15 +39,17 @@ class AppInitView extends WatchUi.View {
 
     function onUpdate(dc) {
 
-        var str = Application.getApp().avMainText.toString();
+        // var str = Application.getApp().avMainText.toString();
 
-        var index = str.find(".");
-        System.println("Text length: " + index);
+        // var index = str.find(".");
+        // System.println("Text length: " + index);
 
-        str = str.substring(0, index+1);
+        // str = str.substring(0, index+1);
 
 
-        myTextArea.setText(str);
+        // myTextArea.setText(str);
+        myTextArea.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+
         // var width = dc.getWidth();
         // var height = dc.getHeight();
         // System.println("Width: "+ width);
@@ -63,26 +65,3 @@ class AppInitView extends WatchUi.View {
         return;
     }
 }
-
-// class AppInitView extends WatchUi.BehaviorDelegate {
-
-//     function initialize() {
-//         BehaviorDelegate.initialize();
-//         System.println("Initializing behavior delegate 2");
-//     }
-
-//     // Detect Menu behavior
-//     function onMenu() {
-//         System.println("Menu behavior triggered");
-//         return false; // allow InputDelegate function to be called
-//     }
-
-
-//     // Detect Menu button input
-//     function onSelect() {
-//         System.println("Select button pressed! 2");
-
-//         // System.println(keyEvent.getKey()); // e.g. KEY_MENU = 7
-//         return true;
-//     }
-// }

@@ -3,19 +3,24 @@ using Toybox.Position;
 using Toybox.Communications;
 using Toybox.WatchUi;
 using Toybox.System;
+using Toybox.Lang as Lang;
 
 class AvalancheDangerApp extends Application.AppBase {
 
     var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
-    var langkey=2;
+    // var langkey=2;
     var date;
     var loc;
+
+    var language = { :norwegian => "1", :english => "2"};
 
     // Storing data
     var avDanger=-1;
     var avDangerName = "";
     var avDangerRegion = "";
     var avMainText = "";
+    
+    var avDate = "";
 
     var avProblems = [];
     // var
@@ -30,7 +35,42 @@ class AvalancheDangerApp extends Application.AppBase {
         // var test = new AppInitView();
         // WatchUi.pushView(test, null, WatchUi.SLIDE_DOWN);
 
-        // System.println("On start...");
+        System.println("On start...");
+        var pos = Position.getInfo();
+        // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
+
+        System.println(pos.position.toDegrees());
+        if(pos.position.toDegrees()[0] == 0){
+            // Creating test pos in Tromsø
+            System.println("No valid recorded position, requesting gps");
+            // Creates a position in Tromsø
+            var locString = "69.6613, 18.9503";
+            var myLoc = Position.parse(locString, Position.GEO_DEG); // -> Location
+            System.println("Tromsø loc: " + myLoc.toDegrees());
+            self.makeRequest(myLoc.toDegrees());
+            // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
+        }else{
+            System.println("Using recorded position");
+            self.makeRequest(pos.position.toDegrees());
+        }
+    }
+
+    function testCallback() {
+        System.println("Callback");
+    }
+
+    function establishConnection() {
+        
+        System.println("Checking wifi...");
+
+        // var connectionStatusCallback = new Lang.Method({:wifiAvailable, :errorCode});
+
+        // Communications.checkWifiConnection(connectionStatusCallback);
+
+        self.getPosition();
+    }
+
+    function getPosition() {
         var pos = Position.getInfo();
         // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
 
@@ -51,8 +91,8 @@ class AvalancheDangerApp extends Application.AppBase {
     }
 
     function makeRequest(loc){
-        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + langkey.toString() + "/" + "2021-05-12/2021-05-12"; // Hardcored date for testing
-        // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Simple/69.6489/18.9551/1/2021-05-12/2021-05-12";
+        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language["norwegian"]; // Hardcored date for testing
+        // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Detail/69.6489/18.9551/1/2021-05-12/2021-05-12";
         Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
     }
 
@@ -84,7 +124,12 @@ class AvalancheDangerApp extends Application.AppBase {
             self.avDanger = -1;
             self.avDangerName = "None";
         }
+        
         WatchUi.requestUpdate();
+
+        // WatchUi.pushView(new AvalancheDangerView(), new InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
+
+
         return;
     }
 
@@ -99,7 +144,14 @@ class AvalancheDangerApp extends Application.AppBase {
 
         self.avMainText = data[0]["MainText"].toString();
 
+        self.avDate = data[0]["ValidFrom"].toString();
+
         self.avProblems = data[0]["AvalancheProblems"];
+    }
+
+    function testFunc() {
+        System.print("Test call");
+        return 1;
     }
     
     // onStop() is called when your application is exiting

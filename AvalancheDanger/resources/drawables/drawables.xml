@@ -1,3 +1,14 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="LauncherIcon"   filename="Images/launcher_icon.png"/>
+    <bitmap id="DriftingSnow"   filename="Images/drifting_snow_c.png"   scaleRelativeTo="screen" scaleX="60%" scaleY="60%"/>
+    <bitmap id="GlidingSnow"    filename="Images/gliding_snow_c.png"    scaleRelativeTo="screen" scaleX="60%" scaleY="60%"/>
+    <bitmap id="NewSnow"        filename="Images/new_snow_c.png"        scaleRelativeTo="screen" scaleX="60%" scaleY="60%"/>
+    <bitmap id="OldSnow"        filename="Images/old_snow_c.png"        scaleRelativeTo="screen" scaleX="60%" scaleY="60%"/>
+    <bitmap id="WetSnow"        filename="Images/wet_snow_c.png"        scaleRelativeTo="screen" scaleX="60%" scaleY="60%"/>
+
+    <bitmap id="DriftingSnow2"   filename="Images/drifting_snow_c.png"   scaleRelativeTo="screen" scaleX="25%" scaleY="25%"/>
+    <bitmap id="GlidingSnow2"    filename="Images/gliding_snow_c.png"    scaleRelativeTo="screen" scaleX="25%" scaleY="25%"/>
+    <bitmap id="NewSnow2"        filename="Images/new_snow_c.png"        scaleRelativeTo="screen" scaleX="25%" scaleY="25%"/>
+    <bitmap id="OldSnow2"        filename="Images/old_snow_c.png"        scaleRelativeTo="screen" scaleX="25%" scaleY="25%"/>
+    <bitmap id="WetSnow2"        filename="Images/wet_snow_c.png"        scaleRelativeTo="screen" scaleX="25%" scaleY="25%"/>
 </drawables>
