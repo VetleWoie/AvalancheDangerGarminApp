@@ -80,7 +80,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
 
         // Addinw views to the array
         self.arr.add(self.dangerView);
-        self.arr.add(self.initView);
+        // self.arr.add(self.initView);
 
     }
 

@@ -76,7 +76,7 @@ class ProblemMenuInputDelegate extends WatchUi.Menu2InputDelegate {
                     subLabel,
                     problemId,
                     bitmap,
-                    {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT,}
+                    null// {:alignment => WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_RIGHT,}
                 )
             );
         }

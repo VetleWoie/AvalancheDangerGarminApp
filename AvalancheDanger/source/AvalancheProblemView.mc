@@ -84,6 +84,8 @@ class AvalancheProblemView extends WatchUi.View {
         // Center the text inside the text area
         textProblemName.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
 
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+
         dc.clear();
         // dc.drawScaledBitmap(0, 0, 100, 100, bitmap);
         // dc.drawBitmap(10, 10, bitmap);
