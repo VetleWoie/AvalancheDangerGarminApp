@@ -3,11 +3,13 @@ using Toybox.Position;
 using Toybox.Communications;
 using Toybox.WatchUi;
 using Toybox.System;
+using Toybox.Time.Gregorian;
+using Toybox.Time;
 using Toybox.Lang as Lang;
 
 class AvalancheDangerApp extends Application.AppBase {
 
-    var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.0/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
+    var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
     // var langkey=2;
     var date;
     var loc;
@@ -93,21 +95,21 @@ class AvalancheDangerApp extends Application.AppBase {
         progressBar.setDisplayString("Checking position...");
         
         var pos = Position.getInfo();
-        // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
 
         System.println(pos.position.toDegrees());
+
         if(pos.position.toDegrees()[0] == 0){
             // Creating test pos in Tromsø
             System.println("No valid recorded position, requesting gps");
 
             // Creates a position in Tromsø
-            var locString = "69.6613, 18.9503";
+            var locString = "69.6489, 18.9551";
             var myLoc = Position.parse(locString, Position.GEO_DEG); // -> Location
             System.println("Tromsø loc: " + myLoc.toDegrees());
             self.makeRequest(myLoc.toDegrees());
             // Position.enableLocationEvents({
             //                                 :acquisitionType => Position.LOCATION_ONE_SHOT, 
-            //                                 :constellations => [Position.CONSTELLATION_GPS, Position.CONSTELLATION_GALILEO], 
+            //                                 :constellations => [Position.CONSTELLATION_GPS], 
             //                             },
             //                                 method(:onPosition)
             //                         );
@@ -121,9 +123,18 @@ class AvalancheDangerApp extends Application.AppBase {
     function makeRequest(loc){
         progressBar.setDisplayString("Making request...");
 
-        // self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language["norwegian"]; // Hardcored date for testing
-        self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.6489/18.9551/1/2022-02-15/2022-02-15";
+        var date  = self.getDate();
+
+        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language[:norwegian]+ "/" + date + "/" + date;
+
+        // Converts string to string (works)
+        self.url = self.url.toString(); 
+        // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
+        // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
         // Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
+        // System.println(self.url);
+
+        self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/2022-02-16/2022-02-16";
 
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
@@ -136,6 +147,31 @@ class AvalancheDangerApp extends Application.AppBase {
         Communications.makeWebRequest(self.url, params, options, method(:onRecieve));
 
         
+    }
+
+    function getDate() {
+        var day, month;
+
+        var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+
+        // Add zero to get correct format of month
+        if (today.month < 10) {
+            month = "0" + today.month;
+        } else {
+            month = today.month;
+        }
+
+        // Add zero to get correct format of day
+        if (today.day < 10) {
+            day = "0" + today.day;
+        } else {
+            day = today.day;
+        }
+
+        var str = (today.year +"-"+ month +"-"+ day);
+
+        // System.println(str);
+        return str;
     }
 
     function onPosition(info){
