@@ -125,16 +125,20 @@ class AvalancheDangerApp extends Application.AppBase {
 
         var date  = self.getDate();
 
-        self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language[:norwegian]+ "/" + date + "/" + date;
+        // self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language[:norwegian]+ "/" + date + "/" + date;
+        // Location is the "weakest link"
+        self.url += "69.648900/18.955100"+ "/" + language[:norwegian]+ "/" + date + "/" + date;
 
         // Converts string to string (works)
         self.url = self.url.toString(); 
         // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
         // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
         // Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
-        // System.println(self.url);
+        System.println(self.url);
 
-        self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/2022-02-16/2022-02-16";
+        var url2 = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/2022-02-17/2022-02-17";
+
+        System.println(self.url.equals(url2));
 
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
