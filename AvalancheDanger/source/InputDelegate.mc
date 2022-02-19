@@ -130,7 +130,7 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
     function onSelect(){
         System.println("Select button pressed!");
 
-        var menu = new WatchUi.Menu2({:title=>"Skred- problem"});
+        var menu = new WatchUi.Menu2({:title=>"Skredproblem"});
         System.println("test");
         var delegate = new ProblemMenuInputDelegate();
         

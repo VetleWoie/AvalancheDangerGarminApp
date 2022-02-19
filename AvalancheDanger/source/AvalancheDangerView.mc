@@ -10,6 +10,9 @@ class AvalancheDangerView extends WatchUi.View {
     hidden var textDangerRegion;
     hidden var textDate;
     hidden var textVarsom;
+
+    var height;
+    var width;
     
     function initialize() {
         View.initialize();
@@ -19,45 +22,62 @@ class AvalancheDangerView extends WatchUi.View {
     function onLayout(dc) {
 
         var height = dc.getHeight();
+        var width = dc.getWidth();
 
-        textDanger = new WatchUi.Text({
+        self.width = width;
+        self.height = height;
+
+        var height_02 = height*0.2;
+        
+        textDangerRegion = new WatchUi.TextArea({
+            :text=>"",
+            :color=>Graphics.COLOR_BLACK,
+            :font=>[Graphics.FONT_MEDIUM, Graphics.FONT_SMALL, Graphics.FONT_XTINY],
+            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY=>WatchUi.LAYOUT_VALIGN_START,
+            :width=>width*0.5,
+            :height=>height*0.2,
+        });
+
+        textDanger = new WatchUi.TextArea({
             :text=>"",
             :color=>Graphics.COLOR_WHITE,
-            :font=>Graphics.FONT_NUMBER_THAI_HOT,
+            :font=>[Graphics.FONT_NUMBER_THAI_HOT, Graphics.FONT_NUMBER_MEDIUM],
+            // :font=>[Graphics.FONT_LARGE, Graphics.FONT_MEDIUM, Graphics.FONT_SMALL],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>(WatchUi.LAYOUT_VALIGN_TOP + 20)
+            :locY=>height*0.15,
+            :width=>width,
+            :height=>height*0.45,
         });
 
-        textDangerName = new WatchUi.Text({
+        textDangerName = new WatchUi.TextArea({
             :text=>"",
             :color=>Graphics.COLOR_BLACK,
-            :font=>Graphics.FONT_SMALL,
+            :font=>[Graphics.FONT_MEDIUM, Graphics.FONT_SMALL, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>WatchUi.LAYOUT_VALIGN_CENTER,
+            :locY=>height*0.5 ,
+            :width=>width,
+            :height=>height*0.2,
         });
 
-        textDangerRegion = new WatchUi.Text({
+        textDate = new WatchUi.TextArea({
             :text=>"",
             :color=>Graphics.COLOR_BLACK,
-            :font=>Graphics.FONT_TINY,
+            :font=>[Graphics.FONT_SMALL, Graphics.FONT_TINY, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>WatchUi.LAYOUT_VALIGN_TOP
+            :locY=> height*0.7,
+            :width=>width,
+            :height=>height*0.15,
         });
 
-        textDate = new WatchUi.Text({
-            :text=>"Date: ",
-            :color=>Graphics.COLOR_BLACK,
-            :font=>Graphics.FONT_XTINY,
-            :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=>(height * 0.7)
-        });
-
-        textVarsom = new WatchUi.Text({
+        textVarsom = new WatchUi.TextArea({
             :text=>"Data from Varsom.no",
             :color=>Graphics.COLOR_BLACK,
-            :font=>Graphics.FONT_XTINY,
+            :font=>[Graphics.FONT_SMALL, Graphics.FONT_TINY, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY=> (height * 0.8),
+            :locY=> height*0.85,
+            :width=>width * 0.6,
+            :height=>height*0.15,
         });
 
         WatchUi.requestUpdate();
@@ -107,11 +127,21 @@ class AvalancheDangerView extends WatchUi.View {
 
     }
 
+    function setAreaJustification() {
+        textDangerRegion.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+        textDanger.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+        textDangerName.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+        textDate.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+        textVarsom.setJustification(Graphics.TEXT_JUSTIFY_CENTER);
+
+    }
+
     // Update the view
     function onUpdate(dc) {
 
         // Call the parent onUpdate function to redraw the layout
         self.setVariables();
+        self.setAreaJustification();
 
         //Set color according to avalanche danger.
         if(Application.getApp().avDanger == 1){
@@ -138,13 +168,20 @@ class AvalancheDangerView extends WatchUi.View {
         
         //Clear screen and draw avalanche danger again
         dc.clear();
-        textDanger.draw(dc);
         textDangerName.draw(dc);
+        textDanger.draw(dc);
         textDangerRegion.draw(dc);
         textDate.draw(dc);
         textVarsom.draw(dc);
 
-        textDanger.setFont(Graphics.FONT_NUMBER_THAI_HOT);
+        // Helping lines for positioning
+        // dc.drawLine(0, self.height*0.2, self.width, self.height*0.2);
+        // dc.drawLine(0, self.height*0.5, self.width, self.height*0.5);
+        // dc.drawLine(0, self.height*0.7, self.width, self.height*0.7);
+        // dc.drawLine(0, self.height*0.85, self.width, self.height*0.85);
+        // dc.drawLine(0, self.height*0.90, self.width, self.height*0.90);
+
+        // textDanger.setFont(Graphics.FONT_NUMBER_THAI_HOT);
 
         return;
     }

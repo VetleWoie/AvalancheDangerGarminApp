@@ -17,23 +17,25 @@
         -->
         <iq:products>
             <iq:product id="fenix6pro"/>
+            <iq:product id="fenix7"/>
             <iq:product id="fenix5plus"/>
+            <iq:product id="vivoactive4"/>
         </iq:products>
         <!--
             Use "Connect IQ: Edit Permissions" from the Visual Studio Code command
             palette to update permissions.
         -->
         <iq:permissions>
+            <iq:uses-permission id="BluetoothLowEnergy"/>
             <iq:uses-permission id="Communications"/>
+            <iq:uses-permission id="PersistedContent"/>
             <iq:uses-permission id="Positioning"/>
         </iq:permissions>
         <!--
             Use "Connect IQ: Edit Languages" from the Visual Studio Code command
             palette to edit your compatible language list.
         -->
-        <iq:languages>
-            <iq:language>eng</iq:language>
-        </iq:languages>
+        <iq:languages/>
         <!--
             Use "Connect IQ: Configure Monkey Barrel" from the Visual Studio Code
             command palette to edit the included barrels.

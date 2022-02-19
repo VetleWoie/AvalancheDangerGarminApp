@@ -16,7 +16,7 @@ class AppInitView extends WatchUi.View {
 
     function onLayout(dc) {
         myTextArea = new WatchUi.TextArea({
-            :text=>"Hold Select button to fetch data",
+            :text=>"Press Select button to fetch data",
             :color=>Graphics.COLOR_WHITE,
             :font=>[Graphics.FONT_MEDIUM, Graphics.FONT_SMALL, Graphics.FONT_XTINY],
             :locX =>WatchUi.LAYOUT_HALIGN_CENTER,

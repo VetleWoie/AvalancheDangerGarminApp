@@ -6,10 +6,15 @@ using Toybox.System;
 using Toybox.Time.Gregorian;
 using Toybox.Time;
 using Toybox.Lang as Lang;
+using Toybox.BluetoothLowEnergy as BLE;
 
 class AvalancheDangerApp extends Application.AppBase {
 
-    var url="https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
+    var storageKey = "storageKey";
+
+    var data;
+
+    var url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/"; //{X}/{Y}/2/{Startdato}/{Sluttdato};
     // var langkey=2;
     var date;
     var loc;
@@ -39,37 +44,79 @@ class AvalancheDangerApp extends Application.AppBase {
 
         System.println("On start...");
 
+        // Creates progressbar object
+        // progressBar = new WatchUi.ProgressBar("Press select to get data", null);
+        // Pushing view to the screen
+        // WatchUi.pushView(self.progressBar);
+
+        // establishConnection();
+
         appInitView = new AppInitView();
-        // var test = new AppInitView();
-        // WatchUi.pushView(test, null, WatchUi.SLIDE_DOWN);
 
-        // self.establishConnection();
-
-        // var pos = Position.getInfo();
-        // // var pos = new Position.Location.initialize({:latitude => 69.6613, :longitude => 18.9503, :format => :radians});
-
-        // System.println(pos.position.toDegrees());
-        // if(pos.position.toDegrees()[0] == 0){
-        //     // Creating test pos in Tromsø
-        //     System.println("No valid recorded position, requesting gps");
-        //     // Creates a position in Tromsø
-        //     var locString = "69.6613, 18.9503";
-        //     var myLoc = Position.parse(locString, Position.GEO_DEG); // -> Location
-        //     System.println("Tromsø loc: " + myLoc.toDegrees());
-        //     self.makeRequest(myLoc.toDegrees());
-        //     // Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onPosition));
-        // }else{
-        //     System.println("Using recorded position");
-        //     self.makeRequest(pos.position.toDegrees());
-        // }
     }
 
+    function checkStorageData() {
+
+        try {
+            self.data = Application.Storage.getValue("storageKey");
+            // System.println("self.data = " + self.data);
+
+        } catch (e instanceof Lang.Exception) {
+            System.println(e.getErrorMessage());
+        }
+
+        return;
+    }
+
+    function checkDate() {
+        self.avDate = self.data[0]["ValidFrom"].toString();
+        // System.println(self.avDate);
+
+        var currDate = getDate().toString();
+        // var date;
+
+        var index = self.avDate.find("T");
+        if (index != null) {
+            self.avDate = self.avDate.substring(0, index).toString();
+        }
+
+        // System.println(self.avDate);
+        // System.println(currDate);
+        // System.println(self.avDate.equals(currDate));
+        return self.avDate.equals(currDate);
+    }
 
     function establishConnection() {
-        
-        progressBar.setDisplayString("Checking Wifi...");
+        // Application.Storage.clearValues();
 
-        Communications.checkWifiConnection(method(:connectionStatusCallback));
+        try {
+            self.data = Application.Storage.getValue("storageKey");
+            // System.println("self.data = " + self.data);
+
+        } catch (e instanceof Lang.Exception) {
+            System.println(e.getErrorMessage());
+        }
+
+        if (self.data != null) {
+
+            if (self.checkDate()) {
+
+                self.dataExists();
+
+            } else {
+                progressBar.setDisplayString("Checking Wifi...");
+                // System.println(BLE.getAvailableConnectionCount().toString());
+
+                Communications.checkWifiConnection(method(:connectionStatusCallback));
+            }
+
+        } else {
+
+            progressBar.setDisplayString("Checking Wifi...");
+            // System.println(BLE.getAvailableConnectionCount().toString());
+
+            Communications.checkWifiConnection(method(:connectionStatusCallback));
+        }
 
     }
 
@@ -125,20 +172,26 @@ class AvalancheDangerApp extends Application.AppBase {
 
         var date  = self.getDate();
 
+        System.println(loc.toString());
+
         // self.url += loc[0].toString() + "/" + loc[1].toString() + "/" + language[:norwegian]+ "/" + date + "/" + date;
         // Location is the "weakest link"
-        self.url += "69.648900/18.955100"+ "/" + language[:norwegian]+ "/" + date + "/" + date;
+        var path2 = ("69.648900/18.955100" + "/" + language[:norwegian]+ "/" + date + "/" + date);
+        // var path = (loc[0].toString() + "/" + loc[1].toString() + "/" + language[:norwegian]+ "/" + date + "/" + date);
+        self.url += path2.toString();
 
         // Converts string to string (works)
         self.url = self.url.toString(); 
+
         // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
         // self.url = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/";
-        // Communications.makeWebRequest(self.url, null, {:method => Communications.HTTP_REQUEST_METHOD_GET}, method(:onRecieve));
+
         System.println(self.url);
+        // System.println(path);
 
-        var url2 = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/2022-02-17/2022-02-17";
+        // var url2 = "https://api01.nve.no/hydrology/forecast/avalanche/v6.0.1/api/AvalancheWarningByCoordinates/Detail/69.648900/18.955100/1/2022-02-17/2022-02-17";
 
-        System.println(self.url.equals(url2));
+        // System.println(path.equals(path2));
 
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
@@ -149,8 +202,6 @@ class AvalancheDangerApp extends Application.AppBase {
         var params = {};
 
         Communications.makeWebRequest(self.url, params, options, method(:onRecieve));
-
-        
     }
 
     function getDate() {
@@ -194,8 +245,11 @@ class AvalancheDangerApp extends Application.AppBase {
             progressBar.setDisplayString("Data received!");
 
             System.println("Response recieved!");
+            System.println("Data size = " + data.size());
             System.println("-> Dangerlevel is: " + data[0]["DangerLevel"]);
             // System.println("-> Dangerlevel name is: " + data[0]["DangerLevelName"]);
+
+            self.data = data;
 
             // self.avDanger = data[0]["DangerLevel"].toNumber();
             // self.avDangerName = data[0]["DangerLevelName"].toString();
@@ -203,7 +257,11 @@ class AvalancheDangerApp extends Application.AppBase {
 
             // self.avDangerRegion = data[0]["RegionName"].toString();
             self.setVariables(data);
-        
+            
+            Application.Storage.setValue("storageKey", self.data);
+
+            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+
             WatchUi.requestUpdate();
             WatchUi.pushView(new AvalancheDangerView(), new InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
 
@@ -223,6 +281,16 @@ class AvalancheDangerApp extends Application.AppBase {
         return;
     }
 
+    function dataExists() {
+
+        self.setVariables(self.data);
+        
+        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+
+        WatchUi.requestUpdate();
+        WatchUi.pushView(new AvalancheDangerView(), new InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
+    }
+
     function setVariables(data){
 
         self.avDanger = data[0]["DangerLevel"].toNumber();
@@ -237,6 +305,7 @@ class AvalancheDangerApp extends Application.AppBase {
         self.avDate = data[0]["ValidFrom"].toString();
 
         self.avProblems = data[0]["AvalancheProblems"];
+
     }
 
     function testFunc() {
@@ -246,12 +315,19 @@ class AvalancheDangerApp extends Application.AppBase {
     
     // onStop() is called when your application is exiting
     function onStop(state) {
+
+        // var test = ["test value"];
+        // if (self.checkDate() == 0) {
+        //     // Application.Storage.deleteValue("storageKey");
+        //     // Application.Storage.setValue("storageKey", self.data);
+        // }
+
     }
 
     // Return the initial view of your application here
     function getInitialView() {
         // return [ new AvalancheDangerView(), new InputDelegate()];
-        return [ appInitView, new InitDelegate()];
+        return [self.appInitView, new InitDelegate()];
 
     }
 
