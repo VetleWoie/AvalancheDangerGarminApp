@@ -107,7 +107,9 @@ class AvalancheDangerApp extends Application.AppBase {
                 progressBar.setDisplayString("Checking Wifi...");
                 // System.println(BLE.getAvailableConnectionCount().toString());
 
-                Communications.checkWifiConnection(method(:connectionStatusCallback));
+                // Communications.checkWifiConnection(method(:connectionStatusCallback));
+                self.getPosition();
+
             }
 
         } else {
@@ -115,8 +117,34 @@ class AvalancheDangerApp extends Application.AppBase {
             progressBar.setDisplayString("Checking Wifi...");
             // System.println(BLE.getAvailableConnectionCount().toString());
 
-            Communications.checkWifiConnection(method(:connectionStatusCallback));
+            // Communications.checkWifiConnection(method(:connectionStatusCallback));
+            self.getPosition();
+
         }
+
+        // var mySettings = System.getDeviceSettings();
+        // var phone = mySettings.phoneConnected;
+
+        // progressBar.setDisplayString("Phone connected: " + phone.toString());
+
+
+
+        // SOME BLE TESTING
+        // var test = BLE.getAvailableConnectionCount();
+        // // var test = BLE.cccdUuid();
+
+        // progressBar.setDisplayString("BLE count: " + test);
+
+        // if (test != 0) {
+        //     var obj = BLE.getPairedDevices().next();
+
+        //     // var obj = iter.next();
+
+        //     progressBar.setDisplayString("Name: " + obj.isConnected().toString());
+
+        // }
+
+
 
     }
 
@@ -260,10 +288,10 @@ class AvalancheDangerApp extends Application.AppBase {
             
             Application.Storage.setValue("storageKey", self.data);
 
-            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+            // WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
 
             WatchUi.requestUpdate();
-            WatchUi.pushView(new AvalancheDangerView(), new InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.switchToView(new AvalancheDangerView(), new InputDelegate(), WatchUi.SLIDE_IMMEDIATE);
 
         }else{
 

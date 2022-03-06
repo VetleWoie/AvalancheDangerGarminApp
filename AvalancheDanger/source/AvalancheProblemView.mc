@@ -7,8 +7,8 @@ class AvalancheProblemView extends WatchUi.View {
     hidden var problems;
     hidden var bitmap;
     hidden var textProblemName;
-
     hidden var problemName;
+
 
 
     function initialize(problemId, name) {

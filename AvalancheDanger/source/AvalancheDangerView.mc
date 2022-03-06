@@ -120,7 +120,7 @@ class AvalancheDangerView extends WatchUi.View {
             date = date.substring(0, index);
             // System.println(date);
 
-            textDate.setText("Date: " + date);
+            textDate.setText(date);
         }
 
         textDangerRegion.setText(Application.getApp().avDangerRegion.toString());

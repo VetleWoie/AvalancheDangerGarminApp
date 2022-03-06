@@ -54,6 +54,8 @@ class InputDelegate extends WatchUi.BehaviorDelegate{
     hidden var problems;
     hidden var bitmap;
 
+    // var test = test;
+
 
     var index;
 

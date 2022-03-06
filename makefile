@@ -10,7 +10,7 @@ JUNGLE=AvalancheDanger/monkey.jungle
 
 # DEVICE=fenix5plus
 DEVICE=fenix6pro
-# DEVICE=vivoactive4
+# DEVICE=vivoactive4s
 # DEVICE=fenix7
 #DEV_KEY=../DevKey/developer_key
 DEV_KEY=~/developer_key.der

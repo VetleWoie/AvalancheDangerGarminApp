@@ -6,6 +6,8 @@ using Toybox.Application;
 class ProblemMenuInputDelegate extends WatchUi.Menu2InputDelegate {
     
     var problems;
+    var array = [];
+
 
     function initialize() {
         // Menu2InputDelegate.initialize();
@@ -30,11 +32,33 @@ class ProblemMenuInputDelegate extends WatchUi.Menu2InputDelegate {
         System.println("Selected " + item.getLabel());
         System.println("Selected " + item.getSubLabel());
         System.println("Selected id " + item.getId());
+
+        var problemInfo = self.findProblemInfo(item.getId().toString());
+
         var view = new AvalancheProblemView(item.getId(), item.getLabel()+item.getSubLabel());
-        WatchUi.pushView(view, null, WatchUi.SLIDE_IMMEDIATE);
+
+        WatchUi.pushView(view, new ProblemDelegate(view, problemInfo), WatchUi.SLIDE_IMMEDIATE);
 
         // Create new view based on the selected id, no delegate atm
 
+    }
+
+    function findProblemInfo(id) {
+
+        var avProblemsList = Application.getApp().avProblems;
+        // var i;
+        for (var i = 0; i < avProblemsList.size(); i++) {
+
+            System.println(avProblemsList[i]["AvalancheProblemTypeId"]);
+
+            var currentId = avProblemsList[i]["AvalancheProblemTypeId"].toString();
+
+            if (currentId.equals(id)){
+                return avProblemsList[i];
+            }
+        }
+
+        return {};
     }
 
     function addItemsToMenu(menu) {
